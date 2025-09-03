@@ -44,8 +44,13 @@ const Agence = () => {
         trigger: imageDivRef.current,
         start: 'top 28%',
         end: 'top -80%',
-        scrub: true,
+        scrub: 1,
         pin: true,
+        pinSpacing:true,
+        pinReparent:true,
+        pinType:'transform',
+        anticipatePin:1,
+        invalidateOnRefresh:true,
         onUpdate: (self) => {
           let imageIndex = Math.floor(self.progress * (imageArray.length - 1))
 
@@ -61,11 +66,10 @@ const Agence = () => {
 
   return (
     <div>
-      <div className="section1">
+      <div className="section1 relative py-1">
         <div
           ref={imageDivRef}
-          className="absolute h-[20vw] overflow-hidden rounded-4xl w-[15vw] top-60 left-[30vw]"
-        >
+          className="absolute h-[20vw] overflow-hidden rounded-4xl w-[15vw] top-60 left-[30vw]">
           <img
             ref={imageRef}
             className="h-full object-cover w-full"
